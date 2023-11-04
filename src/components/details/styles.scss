@@ -1,0 +1,43 @@
+.mb-25 {
+    margin-bottom: 250px;
+}
+
+@media (min-width: 851px) {
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 150px;
+        width: 60%;
+        margin-top: 40px;
+    }
+
+    .container img {
+        order: 1;
+    }
+
+    .container .ml-3 {
+        order: 2;
+    }
+
+    .content {
+        width: 40%;
+    }
+}
+
+@media (max-width: 850px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 150px;
+    }
+
+    .container img {
+        order: 2;
+    }
+
+    .container .ml-3 {
+        order: 1;
+    }
+}
