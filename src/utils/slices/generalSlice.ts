@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { servicesApi } from '../api/services';
+import { servicesApi } from '../../api/services';
 import { GeneralState } from './generalSlice.types';
 
 const initialState: GeneralState = {

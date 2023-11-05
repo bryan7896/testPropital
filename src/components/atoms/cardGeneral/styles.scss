@@ -1,0 +1,23 @@
+@import 'src/utils/styles/colors';
+
+
+.cardGeneral {
+    border: 1px solid $COLOR_GRAY;
+    border-radius: 10px;
+    padding: 0;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(159, 159, 159, 0.2);
+}
+
+.cardGeneral:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.imgCardGeneral {
+    border-radius: 10px 10px 0 0;
+}
+
+.textContent {
+    padding-left: 10px;
+}

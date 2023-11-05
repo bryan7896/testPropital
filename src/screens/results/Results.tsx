@@ -3,9 +3,9 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store';
 import { useNavigate } from 'react-router-dom';
-import Card from '../card/Card';
-import { realEstateLists } from '../../slices/generalSlice.types';
-import { setDetails } from '../../slices/generalSlice';
+import Card from '../../components/organisms/card/Card';
+import { realEstateLists } from '../../utils/slices/generalSlice.types';
+import { setDetails } from '../../utils/slices/generalSlice';
 
 const Results: React.FC = () => {
     const dispatch = useDispatch();

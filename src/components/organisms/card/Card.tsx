@@ -1,5 +1,5 @@
 // src/components/Card.tsx
-import { realEstateLists } from '../../slices/generalSlice.types';
+import { realEstateLists } from '../../../utils/slices/generalSlice.types';
 import './styles.scss'
 import React from 'react';
 

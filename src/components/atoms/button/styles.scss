@@ -1,0 +1,25 @@
+@import 'src/utils/styles/colors';
+
+
+.button-general {
+    background-color: $COLOR_BLUE_PRIMARY;
+    border-radius: 40px;
+    border-color: $COLOR_BLUE_PRIMARY;
+    color: $COLOR_WHITE;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.button-red {
+    background-color: $COLOR_RED;
+    border-radius: 5px;
+    border-color: $COLOR_RED;
+    color: $COLOR_WHITE;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.button-general:hover {
+    color: $COLOR_WHITE;
+    background-color: $COLOR_BLUE_SECUNDARY;
+}
