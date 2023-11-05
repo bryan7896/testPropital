@@ -8,6 +8,7 @@ import ServicesApi from '../../api/services';
 import Button from '../../components/atoms/button/Button';
 import Input from '../../components/atoms/input/Input';
 import CardGeneral from '../../components/atoms/cardGeneral/CardGeneral';
+import Select from '../../components/atoms/select/Select';
 
 interface FormData {
     search: string;
@@ -50,13 +51,20 @@ const Home: React.FC = () => {
                         errors={errors}
                         register={register} />
                 </div>
+                <Select
+                    options={[{ value: '1', label: 'Opción 1' }, { value: '2', label: 'Opción 2' }]}
+                    isRequired
+                    name='search'
+                    placeholder='Selecciona'
+                    errors={errors}
+                    register={register} />
                 <Button text='Continuar' style={{ maxWidth: '300px', margin: '0 auto' }} />
             </form>
             <div className="container w-100 justify-content-center d-flex">
                 <div className="row justify-content-center d-flex">
-                    <CardGeneral onClick={() => { }} />
-                    <CardGeneral onClick={() => { }} />
-                    <CardGeneral onClick={() => { }} />
+                    <CardGeneral onClick={() => navigate('/details')} />
+                    <CardGeneral onClick={() => navigate('/details')} />
+                    <CardGeneral onClick={() => navigate('/details')} />
                 </div>
             </div>
         </div>

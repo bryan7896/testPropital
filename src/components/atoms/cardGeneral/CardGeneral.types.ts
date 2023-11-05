@@ -8,5 +8,5 @@ export interface CardGeneralProps {
     /* 
      * @Example: onClick={()=>{}}
      */
-    onClick?: React.MouseEventHandler<HTMLButtonElement>
+    onClick?: React.MouseEventHandler<any>
 }
