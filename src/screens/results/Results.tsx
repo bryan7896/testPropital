@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store';
 import { useNavigate } from 'react-router-dom';
 import Card from '../../components/organisms/card/Card';
-import { realEstateLists } from '../../utils/slices/generalSlice.types';
+import { RealEstateLists } from '../../utils/slices/generalSlice.types';
 import { setDetails } from '../../utils/slices/generalSlice';
 
 const Results: React.FC = () => {
@@ -14,7 +14,7 @@ const Results: React.FC = () => {
     const searchValue = useSelector((state: RootState) => state.general.search);
     const realEstateLists = useSelector((state: RootState) => state.general.realEstateLists);
 
-    const details = (property: realEstateLists) => {
+    const details = (property: RealEstateLists) => {
         dispatch(setDetails(property));
         navigate('/details');
     }
@@ -25,7 +25,7 @@ const Results: React.FC = () => {
                 Resultados de la búsqueda "{searchValue}"
             </h1>
             <div className='mb-25 row' style={{margin: 0}}>
-                {realEstateLists.map((property: realEstateLists, i: number) => (
+                {realEstateLists.map((property: RealEstateLists, i: number) => (
                     <Card property={property} key={`btn-${i}`} onClick={() => details(property)} />
                 ))}
             </div>

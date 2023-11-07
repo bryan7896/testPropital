@@ -2,9 +2,9 @@
 
 
 .button-general {
-    background-color: $COLOR_BLUE_PRIMARY;
-    border-radius: 40px;
-    border-color: $COLOR_BLUE_PRIMARY;
+    background-color: $COLOR_RED;
+    border-radius: 5px;
+    border-color: $COLOR_RED;
     color: $COLOR_WHITE;
     font-size: 20px;
     font-weight: 600;
@@ -19,7 +19,7 @@
     font-weight: 600;
 }
 
-.button-general:hover {
+.button-general:hover, .button-red:hover {
     color: $COLOR_WHITE;
     background-color: $COLOR_BLUE_SECUNDARY;
 }

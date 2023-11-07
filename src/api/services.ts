@@ -13,9 +13,9 @@ export const servicesApi = createApi({
 	}),
 	reducerPath: 'generalApiAuth',
 	endpoints: (build) => ({
-		realEstateListsId: build.mutation<any, any>({ query: (id) => ({method: 'get', url: `/real-estate-lists/${id}`}) }),
-		realEstate: build.mutation<any, any>({ query: () => ({method: 'get', url: `/real-estate-lists/`}) }),
-		locations: build.mutation<any, any>({ query: () => ({method: 'get', url: `/locations`}) }),
+		realEstateListsId: build.mutation<any, any>({ query: (id) => ({ method: 'get', url: `/real-estate-lists/${id}` }) }),
+		realEstate: build.mutation<any, any>({ query: (filter) => ({ method: 'get', url: `/real-estate-lists/?filter=${JSON.stringify(filter)}` }) }),
+		locations: build.mutation<any, any>({ query: () => ({ method: 'get', url: `/locations/?filter=${JSON.stringify({ where: { type: "department" } })}` }) }),
 	})
 });
 

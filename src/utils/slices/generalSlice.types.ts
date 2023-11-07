@@ -1,14 +1,15 @@
 export interface GeneralState {
-    search: string;
-    realEstateLists: any[] | realEstateLists[];
-    realEstate: any | realEstateLists;
-    details: realEstateLists | undefined,
-    locations: Locations | undefined,
+    search: any;
+    realEstateLists: any[] | RealEstateLists[];
+    realEstate: any | RealEstateLists;
+    details: RealEstateLists | undefined,
+    locations: Locations[] | undefined,
 }
 
-export interface realEstateLists {
+export interface RealEstateLists {
     id: string
     locationsId: string;
+    locations: Locations;
     lat: number;
     lng: number;
     images: string[]

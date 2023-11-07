@@ -19,7 +19,7 @@ const App: React.FC = () => {
         <Route path="/details" Component={Details} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
-      <Footer name='Bryan Sandoval' phoneNumber='+57 310 801 2566' />
+      <Footer />
     </Router>
   );
 };

@@ -8,7 +8,7 @@ const Select: React.FC<SelectProps> = ({ placeholder, isRequired, name, register
       <select
         {...register(name, { required: isRequired })}
         id={name}
-        className="form-select form-select-md" aria-label=".form-select-lg example"
+        className="form-select form-select-md" aria-label=".form-select-lg example" style={{ color: '#616067' }}
       >
         <option value="" selected>{placeholder}</option>
         {options.map((property: { value: string; label: string }, i: number) => (

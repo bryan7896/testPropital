@@ -1,3 +1,4 @@
+import { RealEstateLists } from "../../../utils/slices/generalSlice.types";
 
 
 export interface CardGeneralProps {
@@ -13,4 +14,8 @@ export interface CardGeneralProps {
      * @Example: onClick={()=>{}}
      */
     type?: 'general' | 'short'
+    /* 
+     * @Example: realEstate=[]
+     */
+    realEstate?: RealEstateLists
 }

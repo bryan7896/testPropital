@@ -1,11 +1,11 @@
 // src/components/Card.tsx
-import { realEstateLists } from '../../../utils/slices/generalSlice.types';
+import { RealEstateLists } from '../../../utils/slices/generalSlice.types';
 import './styles.scss'
 import React from 'react';
 
 interface CardProps {
     onClick: React.MouseEventHandler<HTMLButtonElement>;
-    property: realEstateLists
+    property: RealEstateLists
 }
 
 const Card: React.FC<CardProps> = ({ onClick, property }) => {

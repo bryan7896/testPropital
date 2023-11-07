@@ -3,8 +3,8 @@ import { servicesApi } from '../../api/services';
 import { GeneralState } from './generalSlice.types';
 
 const initialState: GeneralState = {
-    search: '',
-    realEstateLists: [{test: 'data'}],
+    search: undefined,
+    realEstateLists: [],
     realEstate: undefined,
     details: undefined,
     locations: undefined,
@@ -25,9 +25,6 @@ const generalSlice = createSlice({
         },
     },
     extraReducers(builder) {
-        builder.addMatcher(servicesApi.endpoints.realEstate.matchFulfilled, (state, { payload }) => {
-            state.realEstateLists = payload ?? []
-        })
         builder.addMatcher(servicesApi.endpoints.realEstateListsId.matchFulfilled, (state, { payload }) => {
             state.realEstate = payload ?? undefined
         })
