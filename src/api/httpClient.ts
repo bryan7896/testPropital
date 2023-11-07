@@ -33,13 +33,7 @@ export const axiosBaseQuery =
         }
 
         try {
-            console.log('DATA ======');
-            console.log(data);
-            console.log('HEADERS ======');
-            console.log(baseUrl);
-            console.log(url);
             const result = await axios({ method, url: `${baseUrl}/${url}`, data, headers });
-            console.log(result.data);
             return { data: result.data };
         } catch (axiosError) {
             const error: any = axiosError as AxiosError;

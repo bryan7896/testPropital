@@ -34,7 +34,7 @@ const Details: React.FC<DetailsProps> = ({ }) => {
                 </div>
                 <div className='col-12 mt-4'>
                     <img
-                        className="imgCardGeneral mb-3"
+                        className="imgCardGeneral mb-3 imgDetails"
                         height={300}
                         src={image}></img>
                     <div className='row'>

@@ -22,7 +22,6 @@ const Results: React.FC = () => {
 
     const handleMarkerHover = (marker: RealEstateLists) => {
         if (marker) {
-            console.log(marker)
             setInfoWindowPosition(marker);
             setInfoWindowOpen(true);
         }

@@ -5,6 +5,8 @@ import { MapProps } from "./Map.types";
 import { RealEstateLists } from "../../../utils/slices/generalSlice.types";
 import CardGeneral from "../cardGeneral/CardGeneral";
 import { useNavigate } from "react-router";
+import { useDispatch } from "react-redux";
+import { setDetails } from "../../../utils/slices/generalSlice";
 
 const MapComponent: React.FC<MapProps> = ({
   realEstateLists,
@@ -16,6 +18,8 @@ const MapComponent: React.FC<MapProps> = ({
 }) => {
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
 
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: "",
@@ -23,6 +27,11 @@ const MapComponent: React.FC<MapProps> = ({
 
   if (loadError) return null; // Cambia "Error" a null
   if (!isLoaded) return null; // Cambia "Maps" a null
+
+  const details = (property: RealEstateLists) => {
+    dispatch(setDetails(property));
+    navigate('/details');
+  }
 
   return (
     <GoogleMap
@@ -45,7 +54,7 @@ const MapComponent: React.FC<MapProps> = ({
 
           onCloseClick={() => setInfoWindowOpen(false)}
         >
-          <CardGeneral type="short" onClick={() => navigate('/details')} realEstate={infoWindowPosition} />
+          <CardGeneral type="short" onClick={() => {infoWindowPosition && details(infoWindowPosition)}} realEstate={infoWindowPosition} />
         </InfoWindowF>
       )}
     </GoogleMap>

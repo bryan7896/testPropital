@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { servicesApi } from '../../api/services';
 import { GeneralState } from './generalSlice.types';
 
+//Estado inicial de las variables
 const initialState: GeneralState = {
     search: undefined,
     realEstateLists: [],
@@ -15,22 +16,22 @@ const generalSlice = createSlice({
     initialState,
     reducers: {
         setSearch: (state, { payload }) => {
-            state.search = payload;
+            state.search = payload; // Actualiza el estado de búsqueda
         },
         setRealEstateLists: (state, { payload }) => {
-            state.realEstateLists = payload;
+            state.realEstateLists = payload; // Actualiza la lista de bienes raíces
         },
         setDetails: (state, { payload }) => {
-            state.details = payload;
+            state.details = payload; // Actualiza los detalles generales
         },
     },
     extraReducers(builder) {
         builder.addMatcher(servicesApi.endpoints.realEstateListsId.matchFulfilled, (state, { payload }) => {
-            state.realEstate = payload ?? undefined
-        })
+            state.realEstate = payload ?? undefined; // Actualiza los detalles de bienes raíces desde una llamada al servicio
+        });
         builder.addMatcher(servicesApi.endpoints.locations.matchFulfilled, (state, { payload }) => {
-            state.locations = payload ?? undefined
-        })
+            state.locations = payload ?? undefined; // Actualiza la información de ubicaciones desde una llamada al servicio
+        });
     },
 });
 
