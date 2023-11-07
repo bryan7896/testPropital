@@ -27,7 +27,7 @@ const Cards: React.FC<CardProps> = ({ realEstateLists, navigate, text }) => {
             <div className="container w-100 justify-content-center d-flex">
                 <div className="row justify-content-center d-flex">
                     {realEstateLists?.map((realEstate: RealEstateLists, i: number) => (
-                        <CardGeneral
+                        <CardGeneral  data-testid="card-general"
                             realEstate={realEstate}
                             key={`card-${i}`}
                             onClick={() => details(realEstate)} />

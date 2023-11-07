@@ -25,7 +25,7 @@ const CardGeneral: React.FC<CardGeneralProps> = ({ realEstate, style, onClick, t
     const image = images[imageIndex];
 
     return (
-        <div className={type === 'general' ? "col-sm-12 col-md-6 col-lg-4 justify-content-center d-flex mt-2" : undefined}>
+        <div className={type === 'general' ? "col-sm-12 col-md-6 col-lg-4 justify-content-center d-flex mt-2" : undefined} data-testid="cardGeneral">
             <section className='cardGeneral' onClick={onClick}>
                 <img
                     className="imgCardGeneral"

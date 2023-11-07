@@ -6,7 +6,7 @@ import { CardMapProps } from './CardMap.types';
 const CardMap: React.FC<CardMapProps> = ({ realEstate, onClick, onMouseEnter }) => {
 
     return (
-        <section className='row p-2 contentCardMap' onClick={onClick} onMouseEnter={onMouseEnter}>
+        <section className='row p-2 contentCardMap' onClick={onClick} onMouseEnter={onMouseEnter} data-testid="cardMap">
             <div className='col-3 '>
                 <img
                     className="mapImg"
