@@ -7,12 +7,12 @@ export interface MapProps {
      * Ejemplo: 
      */
     realEstateLists: RealEstateLists[];
-    handleMarkerHover: (marker: RealEstateLists) => void;
-    infoWindowPosition: RealEstateLists | undefined;
-    setInfoWindowOpen: React.Dispatch<React.SetStateAction<boolean>>
-    infoWindowOpen: boolean;
+    infoWindowPosition?: RealEstateLists | undefined;
+    infoWindowOpen?: boolean;
     /* 
-     * Ejemplo: { margin: 10, width: '100%' }
-     */
-    style?: React.CSSProperties | undefined;
+    * Ejemplo: { margin: 10, width: '100%' }
+    */
+   style?: React.CSSProperties | undefined;
+   setInfoWindowOpen: React.Dispatch<React.SetStateAction<boolean>>;
+   handleMarkerHover: (marker: RealEstateLists) => void;
 }
