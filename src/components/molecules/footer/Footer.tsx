@@ -17,7 +17,8 @@ const Footer: React.FC<FooterProps> = ({ }) => {
     const getRealEstateList = useCallback(async (data: any) => {
         try {
             const res = await get_realEstateLists(filterGeneral(data)).unwrap();
-            setRealEstateLists(res)
+            dispatch(setRealEstateLists(res))
+
             navigate('/results');
         } catch (error) {
             console.log('error', error)

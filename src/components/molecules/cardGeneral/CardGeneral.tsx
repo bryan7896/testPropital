@@ -2,7 +2,7 @@ import './styles.scss'
 import React, { useEffect, useState } from 'react';
 
 import { CardGeneralProps } from './CardGeneral.types';
-import Button from '../button/Button';
+import Button from '../../atoms/button/Button';
 
 const CardGeneral: React.FC<CardGeneralProps> = ({ realEstate, style, onClick, type = 'general' }) => {
 
@@ -28,7 +28,7 @@ const CardGeneral: React.FC<CardGeneralProps> = ({ realEstate, style, onClick, t
                 <img
                     className="imgCardGeneral"
                     height={170}
-                    src={image}></img>
+                    src={type == 'general' ? image : realEstate?.images[0]}></img>
                 <div className='textContent'>
                     <p className='m-0'>{realEstate?.price?.toLocaleString('es-CO', { style: 'currency', currency: 'COP' })}</p>
                     <h4 className='m-0'>{realEstate?.locations?.name}</h4>

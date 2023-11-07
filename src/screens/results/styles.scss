@@ -1,7 +1,29 @@
-.btn-outline-secondary {
-    background-color: #54c0eb;
-    border-radius: 40px;
-    border-color: #54c0eb;
-    color: #000;
-    font-family: monospace;
+@import 'src/utils/styles/colors';
+
+.classBorder {
+    border-top: 1px solid $COLOR_GRAY;
+    border-bottom: 1px solid $COLOR_GRAY;
+    background: rgb(242, 242, 242);
+    padding-block: 20px;
+    margin-top: 40px;
+}
+
+.overScroll {
+    padding-right: 10px;
+    height: 400px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+div::-webkit-scrollbar {
+    width: 8px;
+}
+
+div::-webkit-scrollbar-thumb {
+    background-color: $COLOR_BLUE_SECUNDARY;
+    border-radius: 6px;
+}
+
+div::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
 }

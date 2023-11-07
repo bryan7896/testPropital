@@ -20,6 +20,6 @@ h4 {
   font-family: 'monospace'
 }
 
-a {
+a, .imgS img {
   cursor: pointer;
 }

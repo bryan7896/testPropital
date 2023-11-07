@@ -1,0 +1,25 @@
+@import 'src/utils/styles/colors';
+
+.mapImg {
+    border-radius: 10px;
+    height: 90px;
+    width: 90px;
+}
+
+.contentCardMap {
+    position: relative;
+    justify-content: center;
+    border-bottom: 1px solid $COLOR_GRAY;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(159, 159, 159, 0.2);
+    background: $COLOR_WHITE;
+}
+
+.contentCardMap:hover {
+    border-left: 3px solid $COLOR_BLUE_SECUNDARY;
+    background: rgb(248, 246, 255);
+}
+
+.textCardMap {
+    padding-left: 30px;
+}
