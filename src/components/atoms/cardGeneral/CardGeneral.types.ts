@@ -9,4 +9,8 @@ export interface CardGeneralProps {
      * @Example: onClick={()=>{}}
      */
     onClick?: React.MouseEventHandler<any>
+    /* 
+     * @Example: onClick={()=>{}}
+     */
+    type?: 'general' | 'short'
 }

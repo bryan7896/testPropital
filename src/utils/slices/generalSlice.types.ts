@@ -6,10 +6,10 @@ export interface GeneralState {
 }
 
 export interface realEstateLists {
-    _id: string
+    id: string
     locationsId: string;
-    lat: string;
-    lon: string;
+    lat: number;
+    lng: number;
     images: string[]
     neighborhood: string;
     state: string;

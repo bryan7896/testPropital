@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { CardGeneralProps } from './CardGeneral.types';
 import Button from '../button/Button';
 
-const CardGeneral: React.FC<CardGeneralProps> = ({ style, onClick }) => {
+const CardGeneral: React.FC<CardGeneralProps> = ({ style, onClick, type = 'general' }) => {
 
     const images = [
         "https://projects-manager-images.prd.lifullconnect.com/d68beee2-e798-490f-a01a-baa3bb6019ee/d68beee2-e798-490f-a01a-baa3bb6019ee_32f94c39-ae79-48c9-8511-04aae442b49a.png",
@@ -27,7 +27,7 @@ const CardGeneral: React.FC<CardGeneralProps> = ({ style, onClick }) => {
     const image = images[imageIndex];
 
     return (
-        <div className="col-sm-12 col-md-6 col-lg-4 justify-content-center d-flex">
+        <div className={type == 'general' ? "col-sm-12 col-md-6 col-lg-4 justify-content-center d-flex" : undefined}>
             <section className='cardGeneral' onClick={onClick}>
                 <img
                     className="imgCardGeneral"
@@ -37,10 +37,10 @@ const CardGeneral: React.FC<CardGeneralProps> = ({ style, onClick }) => {
                     <p className='m-0'>$ 20.50</p>
                     <h4 className='m-0'>Montería</h4>
                     <p className='m-0'>Calle larga</p>
-                    <Button
+                    {type == 'general' && <Button
                         type='red'
                         style={{ marginBlock: 10 }}
-                        text='Ver detalles' />
+                        text='Ver detalles' />}
                 </div>
             </section>
         </div>

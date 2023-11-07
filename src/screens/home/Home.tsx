@@ -9,6 +9,7 @@ import Button from '../../components/atoms/button/Button';
 import Input from '../../components/atoms/input/Input';
 import CardGeneral from '../../components/atoms/cardGeneral/CardGeneral';
 import Select from '../../components/atoms/select/Select';
+import MapComponent from '../../components/molecules/map/Map';
 
 interface FormData {
     search: string;
