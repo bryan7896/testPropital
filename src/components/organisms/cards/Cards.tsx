@@ -2,7 +2,7 @@
 import { NavigateFunction } from 'react-router';
 import { RealEstateLists } from '../../../utils/slices/generalSlice.types';
 import CardGeneral from '../../molecules/cardGeneral/CardGeneral';
-import './styles.scss'
+import './styles.scss'; // Importamos los estilos para este componente
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { setDetails } from '../../../utils/slices/generalSlice';

@@ -1,7 +1,8 @@
-import './styles.scss'
 import React, { useCallback, useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { setRealEstateLists, setSearch } from '../../utils/slices/generalSlice';
+import { useDispatch } from 'react-redux';
+
+import './styles.scss'; // Importamos los estilos para este componente
+import { setRealEstateLists } from '../../utils/slices/generalSlice';
 import { useNavigate } from 'react-router-dom';
 import ServicesApi from '../../api/services';
 
@@ -9,12 +10,6 @@ import { RealEstateLists } from '../../utils/slices/generalSlice.types';
 import { filterGeneral, filterLocations } from '../../utils/helpers/helpers';
 import Cards from '../../components/organisms/cards/Cards';
 import SearchForm from '../../components/organisms/map/SearchForm';
-
-interface FormData {
-    search: string;
-    location: string;
-    state: string;
-}
 
 const Home: React.FC = () => {
     const dispatch = useDispatch();
@@ -25,6 +20,7 @@ const Home: React.FC = () => {
 
     const [realEstateLists, setRealEstateListsState] = useState<RealEstateLists[]>([])
 
+    // Obtener la lista de ubicaciones y propiedades inmobiliarias al cargar la página.
     const getLocationsList = useCallback(async () => {
         try {
             await get_locations({}).unwrap()
@@ -39,6 +35,7 @@ const Home: React.FC = () => {
         getLocationsList()
     }, [])
 
+    // Realizar una búsqueda de propiedades inmobiliarias según los filtros especificados.
     const getRealEstateList = useCallback(async (data: any) => {
         try {
             const res = await get_realEstateLists(filterGeneral(data)).unwrap();

@@ -1,6 +1,6 @@
+import React from 'react'; 
 import { LogoProps } from './Logo.types';
-import './styles.scss'
-import React from 'react';
+import './styles.scss'; // Importamos los estilos para este componente
 
 import Logo1 from '../../../assets/logo1.png';
 import Logo2 from '../../../assets/logo2.png';

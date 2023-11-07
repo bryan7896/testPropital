@@ -1,10 +1,11 @@
+import React from 'react';
+import './styles.scss'; // Importamos los estilos para este componente
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router';
+
 import ServicesApi from '../../../api/services';
 import { BOGOTA, CORDOBA, MEDELLIN, filterGeneral } from '../../../utils/helpers/helpers';
 import { setRealEstateLists } from '../../../utils/slices/generalSlice';
-import './styles.scss'
-import React, { useCallback } from 'react';
-import { useNavigate } from 'react-router';
 
 interface FooterProps {
 }
@@ -14,16 +15,18 @@ const Footer: React.FC<FooterProps> = ({ }) => {
     const navigate = useNavigate();
     const [get_realEstateLists] = ServicesApi.useRealEstateMutation();
 
-    const getRealEstateList = useCallback(async (data: any) => {
+    const getRealEstateList = async (data: any) => {
         try {
+            // Realiza una llamada a la API para obtener la lista de bienes raíces y la almacena en el estado.
             const res = await get_realEstateLists(filterGeneral(data)).unwrap();
-            dispatch(setRealEstateLists(res))
+            dispatch(setRealEstateLists(res));
 
+            // Navega a la página de resultados.
             navigate('/results');
         } catch (error) {
-            console.log('error', error)
+            console.log('error', error);
         }
-    }, [navigate, get_realEstateLists])
+    };
 
     return (
         <footer className="text-center text-lg-start bg-light text-muted">

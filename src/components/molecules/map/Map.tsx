@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { GoogleMap, useLoadScript, MarkerF, InfoWindowF } from "@react-google-maps/api";
 import PointMark from '../../../assets/pointMark.png';
 import { MapProps } from "./Map.types";

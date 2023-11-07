@@ -1,5 +1,5 @@
-import './styles.scss'
 import React from 'react';
+import './styles.scss'; // Importamos los estilos para este componente
 
 import { InputProps } from './Input.types';
 

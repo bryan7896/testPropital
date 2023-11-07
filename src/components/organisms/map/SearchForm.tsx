@@ -1,9 +1,5 @@
-import React, { useCallback, useEffect, useState } from "react";
-import { GoogleMap, useLoadScript, MarkerF, InfoWindowF } from "@react-google-maps/api";
-import PointMark from '../../../assets/pointMark.png';
+import React, { useCallback } from "react";
 import { SearchFormProps } from "./SearchForm.types";
-import { RealEstateLists } from "../../../utils/slices/generalSlice.types";
-
 import { useNavigate } from "react-router";
 import Select from "../../atoms/select/Select";
 import Input from "../../atoms/input/Input";
@@ -11,7 +7,7 @@ import Button from "../../atoms/button/Button";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../store";
 import ServicesApi from "../../../api/services";
-import { filterGeneral, filterLocations } from "../../../utils/helpers/helpers";
+import { filterGeneral } from "../../../utils/helpers/helpers";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { setRealEstateLists } from "../../../utils/slices/generalSlice";
 
@@ -25,25 +21,11 @@ const SearchForm: React.FC<SearchFormProps> = ({ }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  // Obtener la lista de ubicaciones del estado.
   const locations = useSelector((state: RootState) => state.general.locations);
-  const [get_locations] = ServicesApi.useLocationsMutation();
+
+  // Utilizar la mutación para obtener la lista de bienes raíces.
   const [get_realEstateLists] = ServicesApi.useRealEstateMutation();
-
-  const [realEstateLists, setRealEstateListsState] = useState<RealEstateLists[]>([])
-
-  const getLocationsList = useCallback(async () => {
-    try {
-      await get_locations({}).unwrap()
-      const res = await get_realEstateLists(filterLocations).unwrap();
-      setRealEstateListsState(res)
-    } catch (error) {
-      console.log('error', error)
-    }
-  }, [get_locations, get_realEstateLists])
-
-  useEffect(() => {
-    getLocationsList()
-  }, [])
 
   const {
     register,
@@ -52,6 +34,7 @@ const SearchForm: React.FC<SearchFormProps> = ({ }) => {
     formState: { errors },
   } = useForm<FormData>();
 
+  // Función para obtener la lista de bienes raíces y navegar a los resultados.
   const getRealEstateList = useCallback(async (data: any) => {
     try {
       const res = await get_realEstateLists(filterGeneral(data)).unwrap();

@@ -1,19 +1,21 @@
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
+
+import './styles.scss'; // Importamos los estilos para este componente
 import SearchForm from '../../components/organisms/map/SearchForm';
 import { DetailsProps } from './Details.types';
-import './styles.scss'
-import React, { useEffect, useState } from 'react';
 import { RootState } from '../../store';
 import MapComponent from '../../components/molecules/map/Map';
 
 const Details: React.FC<DetailsProps> = ({ }) => {
-
+    // Obtener los detalles de la propiedad desde el estado global.
     const details = useSelector((state: RootState) => state.general.details);
 
+    // Inicializar variables para gestionar las imágenes de la propiedad.
     const images = details?.images ?? [];
     const [imageIndex, setImageIndex] = useState(0);
 
-
+    // Cambiar automáticamente la imagen cada 5 segundos.
     useEffect(() => {
         const interval = setInterval(() => {
             setImageIndex((prevIndex) => (prevIndex + 1) % images.length);
@@ -24,6 +26,7 @@ const Details: React.FC<DetailsProps> = ({ }) => {
         };
     }, []);
 
+    // Seleccionar la imagen actual.
     const image = images[imageIndex];
 
     return (

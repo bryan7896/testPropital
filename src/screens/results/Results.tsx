@@ -1,9 +1,9 @@
-import './styles.scss'
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import './styles.scss'; // Importamos los estilos para este componente
+
 import { RootState } from '../../store';
 import { useNavigate } from 'react-router-dom';
-import Card from '../../components/organisms/cards/Cards';
 import { RealEstateLists } from '../../utils/slices/generalSlice.types';
 import { setDetails } from '../../utils/slices/generalSlice';
 import MapComponent from '../../components/molecules/map/Map';
@@ -15,11 +15,12 @@ const Results: React.FC = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const searchValue = useSelector((state: RootState) => state.general.search);
+    // Obtener valores del estado global.
     const realEstateLists = useSelector((state: RootState) => state.general.realEstateLists);
     const [infoWindowOpen, setInfoWindowOpen] = React.useState<boolean>(false);
     const [infoWindowPosition, setInfoWindowPosition] = React.useState<RealEstateLists | undefined>(undefined);
 
+    // Manejar el evento de pasar el ratón sobre un marcador en el mapa.
     const handleMarkerHover = (marker: RealEstateLists) => {
         if (marker) {
             setInfoWindowPosition(marker);
@@ -27,12 +28,11 @@ const Results: React.FC = () => {
         }
     };
 
+    // Redirigir a la página de detalles de una propiedad.
     const details = (property: RealEstateLists) => {
         dispatch(setDetails(property));
         navigate('/details');
     }
-
-
 
     return (
         <div className=''>

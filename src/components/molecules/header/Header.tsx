@@ -1,5 +1,6 @@
 import React from 'react';
-import './styles.scss';
+import './styles.scss'; // Importamos los estilos para este componente
+
 import Logo from '../../atoms/logo/Logo';
 import { useNavigate } from 'react-router';
 
