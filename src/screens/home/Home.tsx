@@ -1,7 +1,7 @@
 import './styles.scss'
-import React, { useCallback } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setSearch } from '../../utils/slices/generalSlice';
 import { useNavigate } from 'react-router-dom';
 import ServicesApi from '../../api/services';
@@ -10,6 +10,7 @@ import Input from '../../components/atoms/input/Input';
 import CardGeneral from '../../components/atoms/cardGeneral/CardGeneral';
 import Select from '../../components/atoms/select/Select';
 import MapComponent from '../../components/molecules/map/Map';
+import { RootState } from '../../store';
 
 interface FormData {
     search: string;
@@ -18,8 +19,21 @@ interface FormData {
 const Home: React.FC = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    
+    // const locations = useSelector((state: RootState) => state.general.locations);
+    const [get_locations] = ServicesApi.useLocationsMutation();
 
-    // const [get_realEstateList] = ServicesApi.useRealEstateListsIdMutation();
+    const getLocationsList = useCallback(async () => {
+        try {
+            await get_locations({}).unwrap()
+        } catch (error) {
+            console.log('error', error)
+        }
+    }, [get_locations])
+
+    useEffect(() => {
+        getLocationsList()
+    }, [])
 
     const {
         register,

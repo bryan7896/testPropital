@@ -7,6 +7,7 @@ const initialState: GeneralState = {
     realEstateLists: [{test: 'data'}],
     realEstate: undefined,
     details: undefined,
+    locations: undefined,
 };
 
 const generalSlice = createSlice({
@@ -29,6 +30,9 @@ const generalSlice = createSlice({
         })
         builder.addMatcher(servicesApi.endpoints.realEstateListsId.matchFulfilled, (state, { payload }) => {
             state.realEstate = payload ?? undefined
+        })
+        builder.addMatcher(servicesApi.endpoints.locations.matchFulfilled, (state, { payload }) => {
+            state.locations = payload ?? undefined
         })
     },
 });

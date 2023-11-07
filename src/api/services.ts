@@ -1,7 +1,7 @@
 import { createApi } from '@reduxjs/toolkit/query/react';
 import { axiosBaseQuery } from './httpClient';
 
-const API_URL = 'http://localhost:3001/api'
+const API_URL = 'http://localhost:3001'
 
 export const servicesApi = createApi({
 	baseQuery: axiosBaseQuery({
@@ -15,6 +15,7 @@ export const servicesApi = createApi({
 	endpoints: (build) => ({
 		realEstateListsId: build.mutation<any, any>({ query: (id) => ({method: 'get', url: `/real-estate-lists/${id}`}) }),
 		realEstate: build.mutation<any, any>({ query: () => ({method: 'get', url: `/real-estate-lists/`}) }),
+		locations: build.mutation<any, any>({ query: () => ({method: 'get', url: `/locations`}) }),
 	})
 });
 

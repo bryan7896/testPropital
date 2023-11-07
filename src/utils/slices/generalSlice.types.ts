@@ -3,6 +3,7 @@ export interface GeneralState {
     realEstateLists: any[] | realEstateLists[];
     realEstate: any | realEstateLists;
     details: realEstateLists | undefined,
+    locations: Locations | undefined,
 }
 
 export interface realEstateLists {
@@ -18,4 +19,11 @@ export interface realEstateLists {
     price: number;
     createdAt: string;
     updatedAt: string;
+}
+
+export interface Locations {
+    id: string
+    name: string
+    parentId: string
+    type: string
 }
